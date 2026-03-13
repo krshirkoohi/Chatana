@@ -56,4 +56,4 @@ git push -u origin main
 4. The server will detect the empty node, rename it to `⏳ Thinking...`, and then deliver the AI response.
 
 ## License
-MIT
+CC BY-NC
