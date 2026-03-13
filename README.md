@@ -1,4 +1,4 @@
-# Ask Tana Server (Mobile-Optimized) 🙋‍♀️
+# Ask Tana
 
 A standalone Python server that turns any Tana node into a real-time AI chat interface. Optimized for the Tana Mobile app, but works anywhere.
 
