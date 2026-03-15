@@ -104,7 +104,7 @@ def process(c_id, config):
             ans, new_sid = get_ai(m_txt, sid)
             if ans:
                 # Deliver Response with Bare Header and Hierarchy
-                paste = f"%%tana%%\n- !! 🙋‍♀️ Assistant:\n"
+                paste = f"%%tana%%\n- !! Assistant:\n"
                 
                 ans_lines = [l.strip() for l in ans.split('\n') if l.strip()]
                 # Strip redundant headers
