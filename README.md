@@ -1,4 +1,4 @@
-# Ask Tana Server (Mobile-Optimized) 🙋‍♀️
+# Ask Tana Server (Mobile-Optimized)
 
 A standalone Python server that turns any Tana node into a real-time AI chat interface. Optimized for the Tana Mobile app, but works anywhere.
 
@@ -56,4 +56,4 @@ git push -u origin main
 4. The server will detect the empty node, rename it to `⏳ Thinking...`, and then deliver the AI response.
 
 ## License
-MIT
+CC-BY-NC
