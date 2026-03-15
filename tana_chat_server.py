@@ -97,10 +97,9 @@ def process(c_id, config):
                 raw_lines = [l.strip() for l in ans.split('\n') if l.strip()]
                 ans_lines = []
                 for line in raw_lines:
-                    # Strip leading markers to check content
-                    c = re.sub(r'^(\*\*|__)?(\*|-|\d+\.)\s*', '', line).strip()
-                    c = re.sub(r'(\*\*|__)?$', '', c).strip()
-                    if re.match(r'^(assistant|ai|bot|assistant:):?$', c, flags=re.IGNORECASE): continue
+                    # Nuclear Header Scrub
+                    c = re.sub(r'[^a-zA-Z]', '', line).lower()
+                    if c in ["assistant", "ai", "bot"]: continue
                     ans_lines.append(line)
                 
                 if not ans_lines: ans_lines = ["Understood."]
@@ -109,9 +108,10 @@ def process(c_id, config):
                 current_indent = "  "
                 for line in ans_lines:
                     is_header = re.match(r'^(\*\*|__)?(\d+\.|\*|-|#+|Step \d+:?)\s+', line)
-                    clean_line = re.sub(r'^(\*|-|\d+\.)\s+', '', line).strip()
+                    # Strip leading AI bullets
+                    clean_line = re.sub(r'^(\*\*|__)?(\*|-|\d+\.)\s*', '', line).strip()
                     if is_header:
-                        paste += f"  - {line}\n"
+                        paste += f"  - {clean_line}\n"
                         current_indent = "    "
                     else:
                         if clean_line: paste += f"{current_indent}- {clean_line}\n"
